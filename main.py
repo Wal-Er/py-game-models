@@ -42,8 +42,8 @@ def main() -> None:
         Player.objects.get_or_create(
             nickname=nickname,
             defaults={
-                "email": data["email"],
-                "bio": data["bio"],
+                "email": data.get("email"),
+                "bio": data.get("bio"),
                 "race": race,
                 "guild": guild
             }
