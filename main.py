@@ -9,7 +9,7 @@ def main() -> None:
 
     for nickname, data in players_data.items():
         # --- RACE ---
-        race_data = data["race"]
+        race_data = data.get("race")
         race, _ = Race.objects.get_or_create(
             name=race_data["name"],
             defaults={
@@ -30,7 +30,7 @@ def main() -> None:
         # --- GUILD ---
         guild = None
         if data["guild"] is not None:
-            guild_data = data["guild"]
+            guild_data = data.get("guild")
             guild, _ = Guild.objects.get_or_create(
                 name=guild_data["name"],
                 defaults={
